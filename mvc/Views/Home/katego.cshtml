@@ -1,0 +1,50 @@
+﻿@model mvc.Models.DE
+
+@{
+    ViewBag.Title = "Категории";
+}
+
+<h2>Категории</h2>
+<hr />
+<form method="get">
+    <div class="form-inline">
+
+
+        <label class="control-label">Категории </label>
+        @Html.DropDownList("category", Model.categories as SelectList,
+       htmlAttributes: new { @class = "form-control"})
+
+        <input type="submit" value="Найти" class="btn btn-primary" />
+    </div>
+</form>
+<hr />
+<div class="form-inline">
+    @foreach (var item in Model.events)
+    {<div class="container">
+            <div class="row">
+                <div class="col-sm-pull-6">
+                    <div class="thumbnail ">
+                        <img class=" img-thumbnail" width="300" height="500" src="~/Content/@item.event_pict" />
+                        <div class=" caption">
+                            <p>
+                                @Html.DisplayFor(modelItem => item.event_name)
+                            </p>
+                            <p>   @Html.DisplayFor(modelItem => item.categories.categ_name)</p>
+                            <p>   @Html.DisplayFor(modelItem => item.event_info)</p>
+
+                            <p> @Html.DisplayFor(modelItem => item.event_price)</p>
+                            <p>  @Html.DisplayFor(modelItem => item.event_date)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+

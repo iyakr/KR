@@ -1,0 +1,76 @@
+﻿@model IEnumerable<mvc.Models.Event>
+
+@{
+    ViewBag.Title = "Мероприятия";
+}
+
+<h2>Мероприятия</h2>
+<p><a class="btn btn-default" href="~/Events/Create">Создать новое мероприятие</a></p>
+
+<table class="table">
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Категория
+        </th>
+        <th>
+            Информация
+        </th>
+        <th>
+            Место проведения
+        <th>
+            Цена
+        </th>
+        <th>
+            Постер
+        </th>
+        <th>
+            Дата проведения
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_name)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categories.categ_name)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_info)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.places.name_place)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_price)
+        </td>
+        <td>
+            <a href="~/Content/@item.event_pict">@Html.DisplayFor(modelItem => item.event_pict)</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_date)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.event_Id })
+        </td>
+        <td>
+            @Html.ActionLink("Детали", "Details", new { id = item.event_Id })
+        </td>
+        <td>
+            @Html.ActionLink("Удалить", "Delete", new { id = item.event_Id })
+        </td>
+    </tr>
+}
+
+</table>

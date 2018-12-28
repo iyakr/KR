@@ -1,0 +1,78 @@
+﻿@model mvc.Models.Event
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+<h2>Детали</h2>
+<h3> @Html.DisplayFor(model => model.event_name)</h3>
+<div>
+    <h4> </h4>
+    <hr />
+    <dl>
+        <dt>
+            Категория :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categories.categ_name)
+        </dd>
+
+        <dt>
+            Место :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.places.name_place)
+        </dd>
+
+
+        <dt>
+            Цена :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_price)
+        </dd>
+
+        <dt>
+            Информация :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_info)
+        </dd>
+
+        <dt>
+            Постер :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_pict)
+        </dd>
+
+        <dt>
+            Дата :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+       
+    <div class="form-actions no-color">
+        <p>
+            @Html.ActionLink("Редактировать", "Edit", new { id = Model.event_Id })
+
+        </p>
+        <a class="btn btn-default" href="~/Events/Index">Вернуться к списку</a>
+    </div>
+
+    }
+</div>
+

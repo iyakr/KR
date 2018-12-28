@@ -1,0 +1,60 @@
+﻿@model IEnumerable<mvc.Models.Place>
+
+@{
+                
+
+                ViewBag.Title = "Места проведения мероприятий";
+}
+<h2>Места проведения мероприятий</h2> 
+
+<p><a class="btn btn-default" href="~/Places/Create">Создать новое место</a></p>
+
+<table class="table">
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Адрес
+        </th>
+        <th>
+            Информация
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.name_place)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.addres_place)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.place_info)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefon_place)
+    </td>
+    <td> 
+        @Html.ActionLink("Редактировать", "Edit", new { id = item.name_place })
+    </td>
+    <td>
+        @Html.ActionLink("Детали", "Details", new { id = item.name_place })
+    </td>
+    <td>
+        @Html.ActionLink("Удалить", "Delete", new { id = item.name_place })
+
+    </td>
+</tr>
+}
+
+</table>

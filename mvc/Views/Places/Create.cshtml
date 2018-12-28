@@ -1,0 +1,63 @@
+﻿@model mvc.Models.Place
+
+@{
+    ViewBag.Title = "Форма для создания нового места проведения мероприятия";
+}
+
+<h2>Создание нового места</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p class="text-left"> Название места :</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name_place, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name_place, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="text-left"> Адрес :</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.addres_place, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.addres_place, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="text-left"> Информация :</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.place_info, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.place_info, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="text-left"> Телефон :</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telefon_place, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.telefon_place, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            @*<div class="col-md-offset-2 col-md-10">*@
+                <input type="submit" value="Создать" class="btn btn-success" />
+                <a class="btn btn-default" href="~/Places/Index">Вернуться к списку</a>
+            </div>
+        </div>
+    
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

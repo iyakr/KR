@@ -1,0 +1,88 @@
+﻿@model mvc.Models.Event
+
+@{
+    ViewBag.Title = "Редактировать";
+}
+
+<h2>Редактирование</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<p> @Html.DisplayFor(model => model.event_name)</p>
+ 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+
+    <div class="form-group">
+        <p class="text-left"> Название:</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.event_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.event_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="text-left"> Цена :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.event_price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.event_price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="text-left"> Информация :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.event_info, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.event_info, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="text-left"> Постер :</p>
+        <div class="col-md-10">
+            <input type="file" name="UploadImage" id="UploadImage" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="text-left"> Дата проведения :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.event_date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.event_date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="text-left"> Категория :</p>
+        <div class="col-md-10">
+            @Html.DropDownList("categ_name", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.categ_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="text-left"> Место проведения :</p>
+        <div class="col-md-10">
+            @Html.DropDownList("name_place", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.name_place, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-actions no-color">
+
+        <input type="submit" value="Сохранить" class="btn btn-success" />
+        <a class="btn btn-default" href="~/Events/Index">Вернуться к списку</a>
+    </div>
+</div>
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

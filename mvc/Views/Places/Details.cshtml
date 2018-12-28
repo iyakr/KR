@@ -1,0 +1,52 @@
+﻿@model mvc.Models.Place
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+<h2>Детали</h2>
+
+<h3> @Html.DisplayFor(model => model.name_place)</h3>
+<div>
+  
+    <hr />
+    <dl>
+        <dt>
+            Адрес :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.addres_place)
+        </dd>
+
+        <dt>
+            Информация :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.place_info)
+        </dd>
+
+        <dt>
+            Телефон :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon_place)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <p>
+            @Html.ActionLink("Редактировать", "Edit", new { id = Model.name_place })
+
+        </p>
+        <a class="btn btn-default" href="~/Places/Index">Вернуться к списку</a>
+    </div>
+    }
+</div>

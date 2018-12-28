@@ -1,0 +1,33 @@
+﻿@model IEnumerable<mvc.Models.Event>
+
+@{
+    ViewBag.Title = "Мероприятия";
+}
+
+<h2>Мероприятия</h2>
+
+@foreach (var item in Model)
+{<div class="container">
+        <div class="row">
+            <div class="col-lg-4" >
+                <div class="thumbnail" style="display:inline-block">
+                    <img class="img-thumbnail" src="~/Content/@item.event_pict" />
+                </div>
+
+                <div class="col" style="display:inline-block">
+
+                    <p>
+                        @Html.DisplayFor(modelItem => item.event_name)
+                    <p>
+
+                        @Html.DisplayFor(modelItem => item.places.name_place)
+                        @Html.DisplayFor(modelItem => item.event_info)
+
+                    <p> <a class="btn btn-default" style="background-color: #91d1ff;" href="https://go.microsoft.com/fwlink/?LinkId=301865">Читать далее &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

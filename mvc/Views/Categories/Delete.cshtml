@@ -1,0 +1,31 @@
+﻿@model mvc.Models.Category
+
+
+@{
+    ViewBag.Title = "Удаление ";
+}
+
+<h2>Удаление</h2>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p class="text-left"> Название:</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categ_name)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+            <a class="btn btn-default" href="~/Categories/Index">Вернуться к списку</a>
+        </div>
+    }
+</div>

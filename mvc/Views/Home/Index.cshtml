@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Главная";
+}
+<head>
+    <style>
+        .boxB {
+            display: inline-block; /* Строчно-блочный элемент */
+            position: relative; /* Относительное позиционирование */
+        }
+
+        .photo:hover::after {
+            content: attr(data-title); /* Выводим текст */
+            position: absolute; /* Абсолютное позиционирование */
+            left: 20%;
+            top: 30%; /* Положение подсказки */
+            z-index: 1; /* Отображаем подсказку поверх других элементов */
+            background: rgba(255,255,230,0.9); /* Полупрозрачный цвет фона */
+            font-family: Arial, sans-serif; /* Гарнитура шрифта */
+            font-size: 11px; /* Размер текста подсказки */
+            padding: 5px 10px; /* Поля */
+            border: 1px solid #333; /* Параметры рамки */
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Цирковое выступление "В огне"</h2>
+
+            <div class="boxA"><img src="~/Content/circus.jpg" width="300" height="450" alt="" title="Постер к цирковому представлению 'В огне'" /></div>
+            <div class="col-md-4">
+                <p>
+                    Шоу "В огне" объединяет в себе магию огня и танца, яркие пиротехнические эффекты и волшебную атмосферу любви и романтики..
+                </p>
+                <p><a class="btn btn-default" style="background-color: #91d1ff;" href="https://go.microsoft.com/fwlink/?LinkId=301865">Читать далее &raquo;</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Премьера фильма "Бойцовский клуб"</h2>
+
+            <div class="boxB"><img src="~/Content/FightClub.jpg" width="300" height="450" alt="" title="Постер к фильму 'Бойцовский клуб' " /></div>
+            <p>Терзаемый хронической бессонницей и отчаянно пытающийся вырваться из мучительно скучной жизни клерк встречает некоего Тайлера Дардена, харизматического торговца мылом с извращенной философией. Тайлер уверен, что самосовершенствование — удел слабых, а саморазрушение — единственное, ради чего стоит жить...</p>
+            <p><a class="btn btn-default" style="background-color: #91d1ff;" href="https://go.microsoft.com/fwlink/?LinkId=301866">Читать далее &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Опера "Руслан и Людмила"</h2>
+
+            <div class="boxC"><img src="~/Content/bolshtheatre.jpg" width="300" height="450" alt="" title="Постер к опере 'Руслан и Людмила'" /></div>
+            <p>Опера в пяти действиях Михаила Ивановича Глинки на либретто композитора В.Широкова, при участии К.Бахтурина, Н.Кукольника, Н.Маркевича, А. Шаховского, основанное на одноименной поэме Александра Сергеевича Пушкина...</p>
+            <p><a class="btn btn-default" style="background-color: #91d1ff;" href="https://go.microsoft.com/fwlink/?LinkId=301867">Читать далее &raquo;</a></p>
+        </div>
+
+    </div>
+</body>
